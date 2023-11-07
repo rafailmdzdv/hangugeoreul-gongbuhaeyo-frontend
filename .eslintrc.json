@@ -1,0 +1,12 @@
+{
+  "env": {
+    "browser": true,
+    "es2023": true
+  },
+  "extends": ["standard-with-typescript", "prettier"],
+  "plugins": ["prettier"],
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "rules": {}
+}

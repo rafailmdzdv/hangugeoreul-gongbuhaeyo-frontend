@@ -42,6 +42,7 @@
   "dependencies": {
     "@solidjs/router": "^0.9.0",
     "axios": "^1.6.1",
-    "solid-js": "^1.7.6"
+    "solid-js": "^1.7.6",
+    "vite-plugin-solid-svg": "^0.7.0"
   }
 }

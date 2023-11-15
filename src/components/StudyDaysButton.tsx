@@ -4,7 +4,10 @@ export default function StudyDayButton<P extends { dayTitle: string }>(
   props: P,
 ): JSXElement {
   return (
-    <div class="flex justify-center items-center border-b-2 border-black w-full h-12">
+    <div
+      class="flex justify-center bg-white items-center w-9/12 h-16"
+      style="border-radius: 19px;"
+    >
       {props.dayTitle}
     </div>
   );

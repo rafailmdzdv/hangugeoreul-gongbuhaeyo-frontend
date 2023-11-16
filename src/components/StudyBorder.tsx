@@ -1,19 +1,28 @@
 import axios from "axios";
-import { type Component, type JSXElement, For, createResource } from "solid-js";
-import { createStore } from "solid-js/store";
-
-import { type StudyDay } from "../interfaces";
+import {
+  type Component,
+  type JSXElement,
+  type Setter,
+  For,
+  createResource,
+  createSignal,
+} from "solid-js";
 import StudyDayButton from "./StudyDaysButton";
-import DayBorder from "./DayBorder";
+
+interface Word {
+  id: string;
+  meaning: string;
+  translation: string;
+}
+
+interface StudyDay {
+  id: string;
+  title: string;
+  words: Word[];
+}
 
 const StudyBorder: Component = (): JSXElement => {
   const [days] = createResource<StudyDay[]>(getDaysFromBackend);
-  const [selectedDay, setSelectedDay] = createStore<StudyDay>({
-    id: "",
-    title: "",
-    words: [{ id: "", meaning: "", translation: "" }],
-  });
-
   return (
     <div
       class="flex justify-start h-screen m-auto my-14 gap-36"
@@ -25,9 +34,9 @@ const StudyBorder: Component = (): JSXElement => {
         style="background: #E5DCF8; border-radius: 10px; width: 20%; height: 70%;"
       >
         {days.loading ? (
-          <StudyDayButton message="Loading days..." />
+          <StudyDayButton dayTitle="Loading days..." />
         ) : days.error ? (
-          <StudyDayButton message="Something went wrong..." />
+          <StudyDayButton dayTitle="Something went wrong..." />
         ) : days() ? (
           <For
             each={days()?.sort((a, b): number => {
@@ -36,11 +45,32 @@ const StudyBorder: Component = (): JSXElement => {
               return 0;
             })}
           >
-            {(day) => <StudyDayButton day={day} daySetter={setSelectedDay} />}
+            {(day) => <StudyDayButton dayTitle={day.title} />}
           </For>
         ) : null}
       </div>
-      <DayBorder day={selectedDay} />
+      <div
+        id="border"
+        class="flex justify-center items-center"
+        style="background: #D9B9ED; border-radius: 19px; width: 52%; height: 70%;"
+      >
+        <div
+          id="borderForeground"
+          class="flex justify-between items-center px-10"
+          style="background: #E5DCF8; border-radius: 19px; width: 90%; height: 90%; box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);"
+        >
+          <div
+            id="borderForeground"
+            class="bg-white"
+            style="border-radius: 10px; width: 50%; height: 90%;"
+          ></div>
+          <div
+            id="borderForeground"
+            class="bg-white self-start mt-6"
+            style="border-radius: 10px; width: 40%; height: 30%;"
+          ></div>
+        </div>
+      </div>
     </div>
   );
 };

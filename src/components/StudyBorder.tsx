@@ -24,27 +24,51 @@ interface StudyDay {
 const StudyBorder: Component = (): JSXElement => {
   const [days] = createResource<StudyDay[]>(getDaysFromBackend);
   return (
-    <div class="flex justify-center items-center w-screen h-screen m-auto">
-      <div id="border" class="bg-white border-black border-2 w-5/6 h-5/6">
+    <div
+      class="flex justify-start h-screen m-auto my-14 gap-36"
+      style="width: 95%"
+    >
+      <div
+        id="daysBorder"
+        class="overflow-y-scroll flex flex-col flex-wrap items-center py-6 gap-y-7 ml-4"
+        style="background: #E5DCF8; border-radius: 10px; width: 20%; height: 70%;"
+      >
+        {days.loading ? (
+          <StudyDayButton dayTitle="Loading days..." />
+        ) : days.error ? (
+          <StudyDayButton dayTitle="Something went wrong..." />
+        ) : days() ? (
+          <For
+            each={days()?.sort((a, b): number => {
+              if (a.title > b.title) return 1;
+              if (a.title < b.title) return -1;
+              return 0;
+            })}
+          >
+            {(day) => <StudyDayButton dayTitle={day.title} />}
+          </For>
+        ) : null}
+      </div>
+      <div
+        id="border"
+        class="flex justify-center items-center"
+        style="background: #D9B9ED; border-radius: 19px; width: 52%; height: 70%;"
+      >
         <div
-          id="daysBorder"
-          class="bg-white border-r-black border-r-2 self-start w-1/6 h-full overflow-y-scroll flex flex-col flex-wrap items-start"
+          id="borderForeground"
+          class="flex justify-between items-center px-10"
+          style="background: #E5DCF8; border-radius: 19px; width: 90%; height: 90%; box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);"
         >
-          {days.loading ? (
-            <StudyDayButton dayTitle="Loading days..." />
-          ) : days.error ? (
-            <StudyDayButton dayTitle="Something went wrong..." />
-          ) : days() ? (
-            <For
-              each={days()?.sort((a, b): number => {
-                if (a.title > b.title) return 1;
-                if (a.title < b.title) return -1;
-                return 0;
-              })}
-            >
-              {(day) => <StudyDayButton dayTitle={day.title} />}
-            </For>
-          ) : null}
+          <div
+            id="borderForeground"
+            class="bg-white"
+            style="border-radius: 10px; width: 50%; height: 90%;"
+          ></div>
+          <div
+            id="borderForeground"
+            class="bg-white self-start mt-6"
+            style="border-radius: 10px; width: 40%; height: 30%;"
+          ></div>
         </div>
       </div>
     </div>

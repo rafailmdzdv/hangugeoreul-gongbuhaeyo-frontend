@@ -30,7 +30,7 @@ const StudyBorder: Component = (): JSXElement => {
     >
       <div
         id="daysBorder"
-        class="overflow-y-scroll flex flex-col flex-wrap items-center py-6 gap-y-7"
+        class="overflow-y-scroll flex flex-col flex-wrap items-center py-6 gap-y-7 ml-4"
         style="background: #E5DCF8; border-radius: 10px; width: 20%; height: 70%;"
       >
         {days.loading ? (
@@ -51,8 +51,26 @@ const StudyBorder: Component = (): JSXElement => {
       </div>
       <div
         id="border"
+        class="flex justify-center items-center"
         style="background: #D9B9ED; border-radius: 19px; width: 52%; height: 70%;"
-      ></div>
+      >
+        <div
+          id="borderForeground"
+          class="flex justify-between items-center px-10"
+          style="background: #E5DCF8; border-radius: 19px; width: 90%; height: 90%; box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);"
+        >
+          <div
+            id="borderForeground"
+            class="bg-white"
+            style="border-radius: 10px; width: 50%; height: 90%;"
+          ></div>
+          <div
+            id="borderForeground"
+            class="bg-white self-start mt-6"
+            style="border-radius: 10px; width: 40%; height: 30%;"
+          ></div>
+        </div>
+      </div>
     </div>
   );
 };

@@ -32,8 +32,8 @@ jobs:
     - name: Configure git
       run: |
         cd dist
-        git config --global user.email "rafail.medzhidov@yandex.ru"
-        git config --global user.name "hangugeoreoul"
+        git config --global user.email "rafayt323@gmail.com"
+        git config --global user.name "rafailmdzdv"
         git commit -am "update site"
 
     - name: Push to hangugeoreoul.github.io repo

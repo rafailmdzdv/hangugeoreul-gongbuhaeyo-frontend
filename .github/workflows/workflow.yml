@@ -1,4 +1,4 @@
-name: Hangugeoreoul Frontend CI
+name: Hangugeoreul Frontend CI
 
 on:
   push:

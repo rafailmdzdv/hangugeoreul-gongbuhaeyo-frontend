@@ -34,6 +34,7 @@ jobs:
         cd dist
         git config --global user.email "rafayt323@gmail.com"
         git config --global user.name "rafailmdzdv"
+        git add .
         git commit -am "update site"
 
     - name: Push to hangugeoreoul.github.io repo

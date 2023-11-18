@@ -39,6 +39,7 @@ jobs:
     - name: Push to hangugeoreoul.github.io repo
       uses: ad-m/github-push-action@master
       with:
+        directory: dist
         repository: hangugeoreoul/hangugeoreoul.github.io
         github_token: ${{ secrets.HANGUGEOREOUL_TOKEN }}
         branch: main

@@ -24,7 +24,7 @@ jobs:
         git clone https://github.com/hangugeoreoul/hangugeoreoul.github.io dist
 
     - name: Remove static files
-      run: rm -rf assets/
+      run: rm -rf dist/assets
 
     - name: Build project
       run: npm run build

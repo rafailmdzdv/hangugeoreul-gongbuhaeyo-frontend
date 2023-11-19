@@ -2,7 +2,7 @@ import { type JSXElement, JSX, createSignal } from "solid-js";
 
 import { StudyDay } from "../interfaces";
 import CheckedIco from "./CheckedIco";
-import XmarkIco from "../component/XmarkIco";
+import XmarkIco from "./XmarkIco";
 
 export default function DayBorder<P extends { day: StudyDay }>(
   props: P,

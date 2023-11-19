@@ -15,7 +15,7 @@ export default function StudyDayButton<
 
   return (
     <div
-      class="flex justify-center bg-white items-center w-9/12 h-16"
+      class="flex justify-center bg-white items-center w-9/12 h-16 cursor-pointer transition ease-in delay-100 hover:opacity-70"
       style="border-radius: 19px;"
       onClick={setDay}
     >

@@ -47,11 +47,9 @@ const StudyBorder: Component = (): JSXElement => {
 };
 
 const getDaysFromBackend = async (): Promise<StudyDay[]> => {
-  return await axios
-    .get(`http://${BACKEND_ENDPOINT}/days/all/`)
-    .then((response) => {
-      return response.data;
-    });
+  return await axios.get(`${BACKEND_ENDPOINT}/days/all/`).then((response) => {
+    return response.data;
+  });
 };
 
 export default StudyBorder;

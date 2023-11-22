@@ -2,6 +2,7 @@ import axios from "axios";
 import { type Component, type JSXElement, For, createResource } from "solid-js";
 import { createStore } from "solid-js/store";
 
+import { BACKEND_ENDPOINT } from "..";
 import { type StudyDay } from "../interfaces";
 import StudyDayButton from "./StudyDaysButton";
 import DayBorder from "./DayBorder";
@@ -46,9 +47,11 @@ const StudyBorder: Component = (): JSXElement => {
 };
 
 const getDaysFromBackend = async (): Promise<StudyDay[]> => {
-  return await axios.get("http://127.0.0.1:8000/days/all/").then((response) => {
-    return response.data;
-  });
+  return await axios
+    .get(`http://${BACKEND_ENDPOINT}/days/all/`)
+    .then((response) => {
+      return response.data;
+    });
 };
 
 export default StudyBorder;

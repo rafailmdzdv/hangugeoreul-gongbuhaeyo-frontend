@@ -6,7 +6,7 @@ import App from "./App";
 
 const root = document.getElementById("root");
 
-const BACKEND_ENDPOINT = "http://api.hangugeo.rafailmedzhidov.ru";
+const BACKEND_ENDPOINT = "https://api.hangugeo.rafailmedzhidov.ru";
 
 if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
   throw new Error(

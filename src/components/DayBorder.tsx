@@ -45,21 +45,30 @@ export default function DayBorder<P extends { day: StudyDay }>(
       >
         <div
           id="borderIO"
-          class="bg-white flex flex-col justify-center items-center gap-y-12"
+          class="bg-white flex flex-col items-center"
           style="border-radius: 10px; width: 50%; height: 90%;"
         >
           {props.day.id ? (
             <>
-              <div id="ruTranslation" style="height: 5%;">
-                <h2 class="text-3xl">
+              <div
+                id="ruTranslation"
+                class="w-5/6 flex items-end"
+                style="min-height: 50%;"
+              >
+                <h2
+                  class="w-full break-words text-center whitespace-normal"
+                  style="font-size: 1.5em;"
+                >
                   {props.day.words[currentWordIndex()].translation}
                 </h2>
               </div>
-              <input
-                class="border-black border-2 rounded-md w-5/6 h-1/6 text-3xl text-center"
-                type="text"
-                onChange={handleKoreanInput}
-              />
+              <div id="koInput" class="w-5/6 h-1/2 mt-5 flex items-start">
+                <input
+                  class="border-black mt-100 border-2 w-full h-2/6 rounded-md text-3xl text-center"
+                  type="text"
+                  onChange={handleKoreanInput}
+                />
+              </div>
             </>
           ) : null}
         </div>

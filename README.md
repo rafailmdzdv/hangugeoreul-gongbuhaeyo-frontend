@@ -6,6 +6,6 @@
 
 ## Motivation
 
-### I want to develop this helper to help to my bride to learn Korean language with me. I learn it more easier that she and I want to invest to her studying.
+### I want to develop this helper to help to my bride to learn Korean language with me.
 
 [저버](https://github.com/rafailmdzdv/hangugeoreul-gongbuhaeyo)

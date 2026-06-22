@@ -5,6 +5,6 @@
 
 ## Motivation
 
-### I want to develop this helper to help to my bride to learn Korean language with me
+### I want to develop this helper to help learn Korean.
 
 [저버](https://github.com/rafailmdzdv/hangugeoreul-gongbuhaeyo)
